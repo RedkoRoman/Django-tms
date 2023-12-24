@@ -1,0 +1,21 @@
+{% load static %}
+{#{% extends 'index.html' %}#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" text="text/css" href="{% static 'css/create_students.css' %}">
+</head>
+<body>
+    {% block block_posts %}
+        <h2>Add new Student:</h2>
+        <form method="post" action="{% url 'students-create' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Student</button>
+        </form>
+    {% endblock %}
+</body>
+</html>

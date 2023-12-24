@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+    {% block block_posts %}
+        <form method="get" action="{% url 'post-create' %}">
+            <button>Create New Post</button>
+        </form>
+        <h3>All posts:</h3>
+        <ol>
+            {% for post in posts %}
+                <li>
+                    <a href="{% url 'post-detail' post.id %}"><h4>{{ post.name }}</h4></a>
+                </li>
+            {% endfor %}
+        </ol>
+    {% endblock %}
+</body>
+</html>

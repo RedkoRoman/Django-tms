@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+
+  web:
+    container_name: 'test-web'
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    volumes:
+      - .:/code
+    ports:
+      - '8000:8000'
+    env_file:
+      - .test_env
+    depends_on:
+      - db
+    networks:
+      - main
+
+  db:
+    container_name: 'test-db'
+    image: postgres:12-alpine
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./test_data/postgres:/var/lib/postgresql/data/
+    env_file:
+      - .test_env
+    networks:
+      - main
+
+networks:
+  main:
+
+volumes:
+  db:
+  web:

@@ -1,0 +1,16 @@
+[
+  {
+    "model": "relations.course",
+    "pk": 6,
+    "fields": {
+      "name": "Physics"
+    }
+  },
+  {
+    "model": "relations.course",
+    "pk": 7,
+    "fields": {
+      "name": "Sport"
+    }
+  }
+]

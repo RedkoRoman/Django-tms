@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+    {% block block_posts %}
+        {% if post %}
+            <form method="get" action="{% url 'post-update' post.id %}">
+                <button>Update This Post</button>
+            </form>
+            <br>
+            <form method="get" action="{% url 'post-access-date-update' post.id %}">
+                <button>Update Access Date</button>
+            </form>
+            <br>
+            <table width=100% border="1px solid" bgcolor="#dcdcdc">
+                <tr>
+                    <th>Name</th>
+                    <th>Text</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                    <th>Access Date</th>
+                </tr>
+
+                    <tr>
+                        <td>{{ post.name }}</td>
+                        <td>{{ post.text }}</td>
+                        <td>{{ post.price }}</td>
+                        <td>{{ post.rating }}</td>
+                        <td>{{ post.access_date }}</td>
+                    </tr>
+
+            </table>
+
+            <br>
+
+<!--{#            <h2>Write a Comment for this Post:</h2>#}-->
+<!--{#            <form method="get" action="{% url 'comment-create' post.id%}">#}-->
+<!--{#                <button>Write</button>#}-->
+<!--{#            </form>#}-->
+
+            <br>
+            <h2>Comments:</h2>
+
+            <table width=100% border="1px solid">
+                <tr>
+                    <th>Text</th>
+                    <th>Rating</th>
+                    <th>Created At</th>
+                </tr>
+                {% for comment in post.comments.values %}
+                    <tr>
+                        <td>{{ comment.text }}</td>
+                        <td>{{ comment.rating }}</td>
+                        <td>{{ comment.created_at }}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+        {% else %}
+            <h1>NOT FOUND</h1>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

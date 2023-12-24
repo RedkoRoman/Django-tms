@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My site</title>
+</head>
+<body>
+
+
+    {% block block_posts %}
+        {% if post %}
+            <table width=100% border="1px solid">
+                <tr>
+                    <th>Name</th>
+                    <th>Text</th>
+                    <th>Price</th>
+                </tr>
+
+                    <tr>
+                        <td>{{ post.name }}</td>
+                        <td>{{ post.text }}</td>
+                        <td>{{ post.price }}</td>
+                    </tr>
+
+            </table>
+        {% else %}
+            <h1>NOT FOUND</h1>
+        {% endif %}
+    {% endblock %}
+
+
+</body>
+</html>

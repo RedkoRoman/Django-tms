@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+python-dotenv = "*"
+psycopg2 = "*"
+pillow = "*"
+django-ckeditor = "*"
+djangorestframework = "*"
+django-filter = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+drf-yasg = "*"
+gunicorn = "*"
+pymemcache = "*"
+django-pymemcache = "*"
+django-debug-toolbar = "*"
+django-redis = "*"
+celery = "*"
+django-celery-beat = "*"
+pytest = "*"
+django-pytest = "*"
+pytest-cov = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
